@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteTableViewCell" rowHeight="145" id="KGk-i7-Jjw" customClass="NoteTableViewCell" customModule="Notes" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="145"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="345" height="145"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARg-oE-Kka">
+                        <rect key="frame" x="5" y="5" width="335" height="135"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="23 Jan, 2015" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0u-he-QnL">
+                                <rect key="frame" x="10" y="33" width="315" height="15.666666666666664"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="748" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zph-i6-Pcj">
+                                <rect key="frame" x="10" y="58.666666666666664" width="315" height="66.333333333333343"/>
+                                <string key="text">A position function can be either scalar-valued (for motion in one dimension) or vector-valued (for motion in two or three dimensions). At each point in time its value represents the position of an object at that time.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Physics Notes from Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="706-q4-JDp">
+                                <rect key="frame" x="10" y="10" width="315" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zph-i6-Pcj" firstAttribute="top" secondItem="R0u-he-QnL" secondAttribute="bottom" constant="10" id="56x-lm-cDc"/>
+                            <constraint firstItem="R0u-he-QnL" firstAttribute="top" secondItem="706-q4-JDp" secondAttribute="bottom" constant="5" id="BCC-Zz-GtC"/>
+                            <constraint firstAttribute="trailing" secondItem="zph-i6-Pcj" secondAttribute="trailing" constant="10" id="GFF-Nm-hL3"/>
+                            <constraint firstItem="706-q4-JDp" firstAttribute="top" secondItem="ARg-oE-Kka" secondAttribute="top" constant="10" id="Kc9-fd-tkc"/>
+                            <constraint firstAttribute="trailing" secondItem="706-q4-JDp" secondAttribute="trailing" constant="10" id="L1V-C1-Uwn"/>
+                            <constraint firstAttribute="bottom" secondItem="zph-i6-Pcj" secondAttribute="bottom" constant="10" id="Unq-71-m5F"/>
+                            <constraint firstItem="zph-i6-Pcj" firstAttribute="leading" secondItem="ARg-oE-Kka" secondAttribute="leading" constant="10" id="ZMD-gC-6q6"/>
+                            <constraint firstItem="706-q4-JDp" firstAttribute="leading" secondItem="ARg-oE-Kka" secondAttribute="leading" constant="10" id="mSr-Gi-1iz"/>
+                            <constraint firstAttribute="trailing" secondItem="R0u-he-QnL" secondAttribute="trailing" constant="10" id="ort-wQ-Wot"/>
+                            <constraint firstItem="R0u-he-QnL" firstAttribute="leading" secondItem="ARg-oE-Kka" secondAttribute="leading" constant="10" id="xqr-s9-v1e"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ARg-oE-Kka" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="4mx-Uc-p0Z"/>
+                    <constraint firstItem="ARg-oE-Kka" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="BHP-fT-5wX"/>
+                    <constraint firstAttribute="bottom" secondItem="ARg-oE-Kka" secondAttribute="bottom" constant="5" id="CsC-aD-Odw"/>
+                    <constraint firstAttribute="trailing" secondItem="ARg-oE-Kka" secondAttribute="trailing" constant="5" id="h3J-HN-LOF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateLbl" destination="R0u-he-QnL" id="Yrv-f5-KWt"/>
+                <outlet property="notesLbl" destination="zph-i6-Pcj" id="Fy2-ao-WMM"/>
+                <outlet property="titleLbl" destination="706-q4-JDp" id="hbm-C8-6iS"/>
+            </connections>
+            <point key="canvasLocation" x="154.61538461538461" y="56.516587677725113"/>
+        </tableViewCell>
+    </objects>
+</document>
