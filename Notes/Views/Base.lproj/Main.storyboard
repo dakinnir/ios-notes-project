@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +24,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="R6k-Br-nZN"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fjU-mL-U88">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fjU-mL-U88">
                                 <rect key="frame" x="0.0" y="147" width="390" height="697"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -31,12 +32,15 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteTableViewCell" id="KyG-5E-bfV">
-                                        <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KyG-5E-bfV" id="0sb-YL-OIJ">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Zc8-3B-hxz" kind="show" identifier="EditNoteSegue" id="7NM-Qx-6ua"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -53,10 +57,10 @@
                             <constraint firstAttribute="bottom" secondItem="fjU-mL-U88" secondAttribute="bottom" id="tRM-aF-ANv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Notes" id="K9w-o4-r0A">
+                    <navigationItem key="navigationItem" title="Notes" largeTitleDisplayMode="always" id="K9w-o4-r0A">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="D9E-xD-WkK">
                             <connections>
-                                <segue destination="Zc8-3B-hxz" kind="show" identifier="AddNoteViewController" id="2E0-vt-E65"/>
+                                <segue destination="Zc8-3B-hxz" kind="show" identifier="AddNoteSegue" id="2E0-vt-E65"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -69,7 +73,7 @@
             </objects>
             <point key="canvasLocation" x="976.92307692307691" y="-2.1327014218009479"/>
         </scene>
-        <!--Edit Note View Controller-->
+        <!--Add New Note-->
         <scene sceneID="miK-cY-a0u">
             <objects>
                 <viewController id="Zc8-3B-hxz" customClass="EditNoteViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,36 +81,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vE7-v5-CSn">
-                                <rect key="frame" x="16" y="107" width="358" height="64.333333333333314"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EeH-LY-Fcm">
+                                <rect key="frame" x="0.0" y="91" width="390" height="753"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddp-nk-6cA">
-                                        <rect key="frame" x="0.0" y="0.0" width="37.666666666666664" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6f-4h-NVK">
-                                        <rect key="frame" x="0.0" y="30.333333333333343" width="358" height="34"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xk6-Rg-a6Q">
+                                        <rect key="frame" x="10" y="0.0" width="370" height="753"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="m6f-4h-NVK" secondAttribute="trailing" id="FxN-gC-JeQ"/>
-                                    <constraint firstItem="m6f-4h-NVK" firstAttribute="leading" secondItem="vE7-v5-CSn" secondAttribute="leading" id="VQj-5z-Amc"/>
+                                    <constraint firstItem="Xk6-Rg-a6Q" firstAttribute="top" secondItem="Rb4-Te-6fR" secondAttribute="top" id="489-rv-K4a"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xk6-Rg-a6Q" secondAttribute="bottom" id="5ER-zZ-Y3S"/>
+                                    <constraint firstItem="Xk6-Rg-a6Q" firstAttribute="bottom" secondItem="Rb4-Te-6fR" secondAttribute="bottom" id="Kj0-hI-7iC"/>
+                                    <constraint firstItem="Xk6-Rg-a6Q" firstAttribute="trailing" secondItem="EeH-LY-Fcm" secondAttribute="trailing" id="ffy-im-6jw"/>
+                                    <constraint firstItem="Rb4-Te-6fR" firstAttribute="trailing" secondItem="Xk6-Rg-a6Q" secondAttribute="trailing" constant="10" id="kho-oD-kTQ"/>
+                                    <constraint firstItem="Xk6-Rg-a6Q" firstAttribute="leading" secondItem="Rb4-Te-6fR" secondAttribute="leading" constant="10" id="yri-wJ-FtG"/>
                                 </constraints>
-                            </stackView>
+                                <viewLayoutGuide key="contentLayoutGuide" id="kyO-4M-STu"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Rb4-Te-6fR"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lcH-rU-dG4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vE7-v5-CSn" firstAttribute="top" secondItem="lcH-rU-dG4" secondAttribute="top" constant="16" id="CM2-xx-7P9"/>
-                            <constraint firstItem="vE7-v5-CSn" firstAttribute="leading" secondItem="lcH-rU-dG4" secondAttribute="leading" constant="16" id="IkH-mE-2mu"/>
-                            <constraint firstItem="lcH-rU-dG4" firstAttribute="trailing" secondItem="vE7-v5-CSn" secondAttribute="trailing" constant="16" id="eRO-s6-PMr"/>
+                            <constraint firstItem="EeH-LY-Fcm" firstAttribute="top" secondItem="lcH-rU-dG4" secondAttribute="top" id="TWZ-IT-W39"/>
+                            <constraint firstItem="EeH-LY-Fcm" firstAttribute="leading" secondItem="lcH-rU-dG4" secondAttribute="leading" id="Zyj-dG-bEz"/>
+                            <constraint firstItem="EeH-LY-Fcm" firstAttribute="trailing" secondItem="lcH-rU-dG4" secondAttribute="trailing" id="dVR-7q-PfT"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="EeH-LY-Fcm" secondAttribute="bottom" constant="-34" id="vIp-fc-gcU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0ae-lU-ZNB"/>
+                    <navigationItem key="navigationItem" title="Add New Note" largeTitleDisplayMode="never" style="editor" id="0ae-lU-ZNB">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Je7-yr-smm">
+                            <connections>
+                                <action selector="doneBtnClicked:" destination="Zc8-3B-hxz" id="0da-fU-lpg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="notesTextView" destination="Xk6-Rg-a6Q" id="0xh-IA-da8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfl-Xm-3Hg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,6 +136,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TtY-MC-N4G">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="AccentColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -131,8 +150,17 @@
             <point key="canvasLocation" x="47.692307692307693" y="-2.1327014218009479"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7NM-Qx-6ua"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
