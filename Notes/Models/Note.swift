@@ -8,7 +8,6 @@
 import Foundation
 
 struct Note {
-    var title: String
     var notes: String
     // var dateCreated: Date?
     var lastModified: Date? = Date()
@@ -27,6 +26,17 @@ struct Note {
             return dateFormatter.string(from: dateModified)
         }
         return ""
+    }
+    
+    var title: String {
+        return notes.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .newlines).first ?? "" // returns the first line of the text
+    }
+        
+    var desc: String {
+        var lines = notes.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .newlines)
+        print(lines)
+        lines.removeFirst()
+        return "\(lines.first ?? "")" // return second line
     }
 }
 
