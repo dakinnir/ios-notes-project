@@ -7,26 +7,62 @@
 
 import UIKit
 
-class EditNoteViewController: UIViewController {
+protocol EditNoteViewControllerDelegate {
+    func updateNotesViewController(_ note: Note)
+}
+
+class EditNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
     // MARK: - Properties
     var note: Note?
     
+    @IBOutlet weak var notesTextView: UITextView!
+    
+    var delegate: EditNoteViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // initial setup after loading the view.
+        // pre-populate views
+        if let note = note {
+            notesTextView.text = note.notes
+        }
+    }
+
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.becomeFirstResponder()
+        return true
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidLoad()
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .automatic
+        
+        notesTextView.delegate = self
     }
-    */
+    
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        notesTextView.resignFirstResponder()
+    }
+    
+    // save current notes
+    @IBAction func doneBtnClicked(_ sender: UIBarButtonItem) {
+        if let note = notesTextView.text {                        
+            let modifiedDate: Date = Date()
+            let newNote = Note(notes: note, lastModified: modifiedDate)
+            self.delegate?.updateNotesViewController(newNote)
+            
+            self.navigationController?.popToRootViewController(animated: true)
+        } else {
+            return
+        }
+    }
 
 }
